@@ -1,0 +1,101 @@
+Todo grid é composto de 2 principais grupos:
+'container: pai'e 'itens: os filhos'
+	<div> id="pai">
+		<div id="filho1">
+		</div>
+	</div>
+
+Displays normalmente "inline" dentro do grid ficam como "block".
+
+O comando "display: inline-grid" libera algumas propriedades que não existem no "inline" simples.
+--------------------------------
+O "display: grid" libera as opções de templates de grid para os containers(pais)
+	"grid-template-columns: 100px 200px 300px"(3 colunas, a primeira de 100px, a segunda de 200px e a terceira de 300px)
+		Pode-se usar a medida "fr" que divide uma fração do tamanho da caixa de acordo com o colocado.
+			"grid-template-columns: 1fr 1fr 1fr"(separa a caixa em 3 e deixa 1/3 para cada)
+			"grid-template-columns: 1fr 2fr 1fr"(primeira coluna: 1/4, segunda coluna: 2/4, terceira coluna: 1/4)
+	
+		Existe também o comando repeat para fazer isso de forma mais fácil quando as frações forem iguais para as colunas.
+			"grid-template-columns: repeat(3, 1fr)" (3 colunas de 1 fração: 1/3 cada coluna)
+		PS: PODEM SER USADAS DIVERSAS FORMAS DE MEDIDAS: px, fr, vw, %, rem...
+
+	"grid-template-row: 100px 200px 300px"(separa a caixa em 3 linhas com as respectivas alturas informadas)
+		Pode-se usar as medidas e comandos informados no grid-template-column,
+		 mas o ideal é informar a altura da caixa para não ser usada a automática.
+
+
+	"grid-template-areas:
+		"A B B"
+		"A B B"
+		"A C D" "
+			Dessa forma o grid está sendo separados em elementos A, B, C e D, cada um com uma parte do gride total.
+			É importando que o tamanho e altura do gride já estejam estabelecidos, pois o gride-template-area utiliza as funções de "fração".
+			No exemplo acima significa que a caixa "A" será armazenada na "primeira coluna X três linhas"
+			A caixa "B" será armazenada nas "duas últimas colunas X 2 últimas linhas"
+			A caixa "C" e "D" ficarão respectivamente na posição col-2/row-2 e col-3/row-3.
+	PS: O elemento que usará casa posição é definido pelo comando "gride-area: A", "gride-area: B", "gride-area: C" e "gride-area: D"(Depende de como você configurou)
+		EX:	#app header{
+				grid-area: A;
+			}
+
+			#app main{
+				grid-area: B;
+			}
+
+-------------------------------
+O "display: grid" libera as opções de start e end para columns e rows de grid para os itens(filhos)
+	"grid-column-start" diz em qual linha virtual das colunas irá começar aquela caixa.
+	"grid-column-end" diz em qual linha virtual das colunas irá terminar aquela caixa.
+		linha virtual: um grid com 3 colunas possui 4 linhas virtuais, um com 4 colunas possui 5 linhas virtuais, uma coluna possui 2 linhas virtuais.
+			a linha somada é a que é usada para formar as colunas > |_|_|_| < aqui tem 3 colunas, mas 4 linhas virtuais.
+	PS: O grid para rows levam em consideração a mesma lógica das columns.
+PS:É normal o grid ficar errado enquanto todos os elementos não são ajustados corretamente nele.
+
+--------------------------------
+O "display: grid" libera as opções de gap(espaços) para o grid.
+	"gap" para todos, "row-gap" para linhas e "column-gap" para colunas.
+	O gap é usado por exemplo "gap: 30px" e é aplicado em volta das caixas.
+	Se for usada a propriedade "grid-template-areas" o gap funciona em volta de realmente toda a caixa em si, então se aplicar um gap na caixa A
+		do exemplo mencionado anteriormente, vai ser criado um em volta de toda a caixa A e não entre os A's também.
+
+--------------------------------
+Por fim, existe a propriedade "grid-template" que engloba todas as propriedades dos templates.
+	Exemplo:
+		"grid-template:
+			"A B B" 80px /
+			"A B B" 30px /
+			"A C D" 50px / 40px 70px 90px "
+		O comando anterior faz com que a primeira linha tenha 80px de altura, a segunda tenha 30px de altura e a terceira tenha 50px de altura.
+		O comando anterior também faz com que a primeira coluna tenha 40px de largura, a segunda tenha 70px de largura e a terceira tenha 90px de largura.
+
+-------------------------------
+
+ALINHAMENTOS DO GRID:
+
+Propriedades de alinhamento do container(pai)
+	"align-content: y ;" pode ser usado como start, end e center. (Alinhamento VERTICAL do conteúdo do grid)
+	"align-content: y ;" também pode ser usado com as propriedades space-around, space-between e space-evenly;
+
+	"justify-content: x ;" pode ser usado como start, end e center. (Alinhamento HORIZONTAL do conteúdo do grid)
+	"justify-content: x ;" também pode ser usado com as propriedades space-around, space-between e space-evenly;
+
+	"place-content: xy;" pode ser usado com todas as propriedades do justify e align mencionadas.
+		(Alimento tanto na VERTICAL quanto na HORIZONTAL do conteúdo do grid)
+
+	----------------
+	"align-items: y ;" pode ser usado como stretch(padrão), start, center e end e muitos outros. (alimentamento VERTICAL de cada item do conteúdo do grid)
+		A altura automática do item é retirado por esse comando.
+
+	"justify-items: x"; pode ser usado como stretch(padrão), start, center e end e muitos outros.(alimentamento HORIZONTAL de cada item do conteúdo do grid)
+		A largura automática do item é retirado por esse comando.
+
+	"place-items: xy"; pode ser usado como stretch(padrão), start, center e end e muitos outros.
+		(alimentamento tanto HORIZONTAL quanto VERTICAL de cada item do conteúdo do grid).
+		A altura largura e altura automáticas do item são retiradas por esse comando.
+
+
+Propriedades de alinhamento do item(filho)
+	"align-self: y;" pode ser usado como start, end e center, etc. (Alinhamento VERTICAL do item específico do conteúdo do grid)
+	"justify-self: x;" pode ser usado como start, end e center, etc. (Alinhamento HORIZONTAL do item específico do conteúdo do grid)
+	
+	

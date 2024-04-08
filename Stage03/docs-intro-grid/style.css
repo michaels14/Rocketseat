@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* USO DE COLUMNS EXEMPLO COM TAGS QUAISQUER
+
+#app{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+}
+
+#app > div{
+    border: 1px solid red;
+}
+
+#app div:nth-child(1){
+    grid-column-start: 1;
+    grid-column-end: 4;
+    
+}
+
+#app div:nth-child(2){
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-column: 1/3;
+    
+}
+
+#app div:nth-child(4){
+    grid-column: 1/4;
+    
+} */
+
+/* span{
+    border: 1px solid blue;
+} */
+
+
+/* USO DE COLUMNS EXEMPLO COM TAGS APROPRIADAS
+
+#app{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+}
+
+#app > *{
+    border: 1px solid red;
+}
+
+#app header{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    
+}
+
+#app main{
+    grid-column: 1/3;
+    
+}
+
+#app footer{
+    grid-column: 1/4;
+    
+} */
+
+
+/*USO DE ROWS EXEMPLO CONTENDO TAMBÉM O USO DE COLUMNS*/
+/* 
+#app{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+}
+#app > *{
+    border: 1px solid red;
+}
+
+#app header{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    
+}
+
+#app main{
+    grid-column: 2/4;
+    grid-row: 1/3;
+    
+} */
+
+/* #app aside{
+    grid-column: 3/4; 
+}
+
+#app footer{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    
+} */
+
+
+/* EXEMPLO UTILIZANDO GRIDE-TEMPLATE-AREAS */
+/* #app{
+    display: grid;
+    grid-template-areas: 
+    "A B B"
+    "A B B"
+    "A C D";
+    
+    gap: 30px;
+
+    padding: 30px;
+
+    height: 100vh;
+} */
+
+
+/* EXEMPLO UTILIZANDO GRIDE-TEMPLATE*/
+#app{
+
+    color: white;
+
+    display: grid;
+    grid-template: 
+    "A B B" 100px
+    "A B B" 100px
+    "A C D" 100px / 100px 100px 100px;
+    
+    gap: 30px;
+    /* justify-content: space-evenly;
+    align-content: space-evenly;
+    place-content: center; */
+
+    /* align-items: center;
+    justify-items: center;
+    place-items: center;*/
+
+    padding: 30px;
+
+    height: 100vh;
+    width: 100vw;
+
+    background-color: black;
+}
+
+#app > *{
+    border: 1px solid red;
+    background-color: blue;
+}
+
+#app header{
+    grid-area: A;
+    
+}
+
+#app main{
+    grid-area: B;
+    
+}
