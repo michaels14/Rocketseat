@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-size: 62.5%; /* 10xp */
+}
+
+body{
+    font-family: "Epilogue", sans-serif;
+    font-size: 1.6rem;
+    
+    background-color: #ECE9FD;
+
+    padding: 6.0rem 2.3rem 6.6rem;
+    
+}
+
+main{
+    max-width: 33.0rem;
+    margin: 0 auto;
+}
+
+h1{
+    color: #090039;
+    font-size: 4.0rem;
+    font-weight: 800;
+    line-height: 4.8rem;
+}
+
+
+main p:first-child{
+    color: #7158EF;
+    line-height: 3.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    margin-bottom: 1.7rem;
+
+}
+
+h1 + p{
+    color: rgba(10, 0, 57, 0.64);
+    line-height: 3.2rem;
+
+    margin: 1.5rem 0 3.2rem;
+}
+
+p + a{
+    color: #090039;
+    line-height: 3.2rem;
+    text-decoration: none;
+
+}
+
+p + a:hover{
+    color: #7158EF;
+    font-weight: bold;
+
+}
+
+main ul{
+    margin-top: 7.2rem;
+}
+
+main ul li{
+    font-weight: 700;
+    color: #090039;
+    font-size: 2.4rem;
+    list-style: none;
+    line-height: 3.2rem;
+    
+    display: flex;
+    gap: 2.4rem;
+
+    max-width: 25.7rem;
+    
+}
+
+main ul li + li{
+    margin-top: 3.2rem;
+}
+
+main ul span{
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 7.2rem;
+    line-height: 8.0rem;
+
+    min-width: 4.7rem;
+}
+
+
+/* media queries */
+
+@media (min-width: 700px){
+    body{
+        padding: 8rem;
+    }
+    
+    main{
+        max-width: 1020px;
+        
+        display: flex;
+        gap: 11.0rem;
+    }
+
+    main > div{
+        max-width: 484px;
+    }
+
+    main ul li{
+        align-items: center;
+        gap: 5.3rem;
+        
+        max-width: 450px;
+    }
+
+}

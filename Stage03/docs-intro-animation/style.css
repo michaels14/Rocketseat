@@ -1,0 +1,172 @@
+body{
+    background-color: mediumpurple;
+    margin: 200px 200px;
+}
+
+.square{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: .6;
+}
+
+/*DOCS: EXERCÍCIO 1*/
+/*.square{/*propriedades da animação*/
+    /*animation-name: move; /*nome da animação escolhida*/
+    /*animation-duration: 1s; /* durante 1s faz a animação até chegar em 100% e quando termina volta para o 0%*/
+    /*animation-fill-mode: forwards;/*o forwards faz com que a animação pare no 100%, ou seja, o quadrado se mantém do outro lado*/
+/*}
+
+/*@keyframes move{
+    /*pode ser usado "from" e "to" no lugar de 0 e 100*/
+    
+    /*0%{
+
+    /*}
+
+    /*100%{
+    /*    transform: translateX(calc(100vw - 100% - 16px));
+/*}
+/*}
+/*DOCS: FIM DO EXERCÍCIO 1*/
+
+/*DOCS: EXERCÍCIO 2*/
+.square{/*propriedades da animação*/
+    position: absolute;
+    animation-name: move; /*nome da animação escolhida*/
+    animation-duration: 5s; /* durante 1s faz a animação até chegar em 100% e quando termina volta para o 0%*/
+    animation-fill-mode: forwards;/*o forwards faz com que a animação pare no 100%, ou seja, o quadrado se mantém do outro lado*/
+    /*animation-direction: reverse;/*muda o sentido da animação, nesse caso ele está indo de 100% para 0% na página*//*primeira opção*/
+    /*animation-direction: alternate; /*alterna a animação quantas vezes forem colocadas no animation-interation-count*//*segunda opção*/
+    animation-iteration-count: infinite;/*aplica o transform do 100% na primeira vez e depois alterna para o 0% na segunda vez*/
+            /*é possível fazer o quadrado "animar" sem fim usando o "animation-interation-count: infinite", o quadrado ficará indo e voltando*/
+}
+
+
+/*adicionando blur com delay para dar a sensação de "rastro".*/
+.blur1 {
+    animation-delay: 50ms;
+    opacity: 0.5;
+}
+  
+.blur2 {
+    animation-delay: 100ms;
+    opacity: 0.4;
+}
+  
+.blur3 {
+    animation-delay: 150ms;
+    opacity: 0.3;
+}
+  
+.blur4 {
+    animation-delay: 200ms;
+    opacity: 0.2;
+}
+
+.blur5 {
+    animation-delay: 250ms;
+    opacity: 0.1;
+}
+
+
+@keyframes move{
+    /*pode ser usado "from" e "to" no lugar de 0 e 100*/
+    
+
+    /* 0%{ ESSE 0% NÃO É NECESSÁRIO POR ESTARMOS USANDO O REVERSE
+
+    } */
+
+
+    /*PRIMEIRA OPÇÃO PARA IR E VOLTAR*/
+    /*50%{ /* O 50% FARÁ COM QUE O QUADRADO CHEGUE NO SEU TRANSFORM EM 50% DO TEMPO E DEPOIS VOLTE AO "NORMAL" NOS OUTROS 50%*/
+        /*transform: translateX(calc(100vw - 100% - 16px));
+    /*}
+    /*FIM PRIMEIRA OPÇÃO PARA IR E VOLTAR*/
+
+
+    /*SEGUNDA OPÇÃO PARA IR E VOLTAR*/
+    /*100%{
+      /*  transform: translateX(calc(100vw - 100% - 16px))
+    /*}
+    /*FIM SEGUNDA OPÇÃO PARA IR E VOLTAR*/
+    
+    
+    /*animação em quadrado(o quadrado anda para a direta/baixo/esuqerda/cima /* 
+    0%{
+        
+    }
+
+    25%{
+        transform: translate(100px, 0px);
+    }
+
+    50%{
+        transform: translate(100px, 100px);
+    }
+    
+    75%{
+        transform: translate(0px, 100px);
+        
+    }
+
+    
+    100%{
+        transform: translate(0px, 0px);
+    }
+    /* fim da animação em quadrado(o quadrado anda para a direta/baixo/esuqerda/cima /* 
+
+
+    /* brincando com o nome NINA com BLUR*/
+    0%{
+
+    }
+
+    10%{
+        transform: translate(50px, -100px);
+    }
+
+    20%{
+        transform: translate(100px, 0px);
+    }
+
+    30%{
+        transform: translate(150px, -100px);
+    }
+
+    35%{
+        transform: translate(170px, -100px);
+    }
+
+    40%{
+        transform: translate(170px, 0px);
+    }
+    45%{
+        transform: translate(190px, 0px);
+    }
+    50%{
+        transform: translate(190px, -100px);
+    }
+    60%{
+        transform: translate(240px, 0px);
+    }
+    70%{
+        transform: translate(290px, -100px);
+    }
+    75%{
+        transform: translate(330px, -100px);
+    }
+    80%{
+        transform: translate(300px, 0px);
+    }
+    85%{
+        transform: translate(330px, -100px);
+    }
+
+    100%{
+        transform: translate(360px, 0px);
+    }
+    /* fim de brincando com o nome NINA com BLUR*/
+}

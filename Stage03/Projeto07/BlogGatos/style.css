@@ -1,0 +1,300 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-size: 62.5%;
+
+    --hue-240:240;
+    --hue-195:195;
+
+    --color-base-white: hsl(0, 0%, 100%);
+    --color-base-gray-50: hsl(var(--hue-195), 100%, 98%);
+    --color-base-gray-700: hsl(var(--hue-240), 6%, 13%);
+    --color-base-gray-900: hsl(var(--hue-240), 5%, 7%);
+    --color-base-blue-500: hsl(var(--hue-195), 46%, 40%);
+    --color-base-blue-700: hsl(var(--hue-195), 91%, 25%);
+}
+
+body, html, input{
+    font-family: "Mulish", sans-serif;
+}
+
+body{
+    font-size: 1.6rem;
+    text-align: center;
+
+    background-color: var(--color-base-white);
+
+}
+
+#app{
+    max-width: 100vw;
+    margin: 0 auto;
+    
+}
+
+
+header{
+    background-color: var(--color-base-blue-700);
+
+    display: flex;
+    gap: 2.4rem;
+
+    padding: 1.6rem 2.8rem
+}
+
+
+form{
+    flex: 1;
+}
+
+.icon-profile{
+    width: 4.2rem;
+    height: 4.2rem;
+    
+    border-radius: 50%;
+}
+
+.input-wrapper label{
+    width: 1px;
+    height: 1px;
+    
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.input-wrapper input{
+    background-color: var(--color-base-blue-500);
+
+    color: var(--color-base-gray-700);
+    
+    border: none;
+    border-radius: 4px;
+    
+    padding: 1.2rem 0 1.2rem 1.4rem;
+    
+    font-weight: 600;
+    font-size: 1.6rem;
+    
+    width: 100%;
+}
+
+.input-wrapper input::placeholder{
+    color: var(--color-base-white);
+    
+}
+
+main > img{
+    margin-bottom: 3.2rem;
+    max-width: 100vw;
+    
+    
+}
+
+img{
+    border-radius: 5px;
+}
+
+.content{
+    text-align: start;
+    padding: 0  2.2rem;
+}
+
+
+main h1{
+    margin-bottom: .8rem;
+}
+
+h1{
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    color: var(--color-base-gray-700);
+}
+
+button{
+    cursor: pointer;
+
+    border: none;
+    background-color: var(--color-base-white);
+    width: 4.0rem;
+    height: 4.0rem;
+}
+
+main p{
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-base-gray-900);
+
+    margin-top: 3.2rem;
+}
+
+aside .content{
+    margin-top: 3.2rem;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+}
+
+.topic{
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+}
+
+.topic img{
+    max-width: 15rem;
+    max-height: 8.4rem;
+}
+
+h2{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-base-gray-700);
+}
+
+aside p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-base-gray-900);
+}
+
+footer{
+    margin-top: 4.0rem;
+    background-color: var(--color-base-blue-500);
+}
+
+footer p{
+    font-weight: 600;
+    color: var(--color-base-white);
+
+    padding: 2.6rem 0;
+}
+
+/* ANIMATIONS */
+header{
+    animation: move .7s .3s;
+    --startY: -100%;
+}
+
+footer{
+    animation: move .7s .3s;
+    --startY: 100%;
+}
+
+@keyframes move{
+    from{
+        transform: translateY(var(--startY));
+    }
+    
+}
+
+.like:active,
+.dislike:active{
+    animation-name: button;
+    animation-duration: .2s;
+}
+
+@keyframes button{
+    0%{
+
+    }
+    50%{
+        transform:scale(1.10);
+    }
+
+}
+
+img, h1, p, .topic {
+    --delay-item: .3s;
+    animation: appear .7s var(--delay-item) backwards ; /*backwards faz com que essa classe utilize o seu "normal" como o 0% ou from da animação
+        a variável --delay-item está utilizando o valor colocado em cada caixa .item diretamente no HTML*/
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    
+}
+
+/* MEDIAS */
+@media (min-width:1100px) {
+    #app{
+        display: grid;
+
+        grid-template-areas: 
+        "A A A"
+        "B B B"
+        "D D D";
+    }
+
+    .container-header-footer{
+        max-width: 100vw;
+    }
+
+    header{
+        grid-area: A;
+        padding: 1.2rem 2%;
+    }
+
+    .container-main-aside{
+        grid-area: B;
+        display: flex;
+        gap: 1.6rem;
+
+        padding: 4.4rem 2%;
+        
+        box-sizing: content-box;
+        
+        margin:0 auto;
+    }
+
+    main{
+        max-width: 80rem;
+    }
+    
+    main img{
+        max-width: 100% ;
+    }
+
+    #start-main{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .content{
+        padding: 0;
+    }
+    
+    footer{
+        grid-area: D;
+    }
+    
+}
+
+@media (min-width: 1400px){
+    
+    .container-main-aside{
+        padding: 4.4rem 11rem;
+        
+        gap: 3.4rem;
+        
+    }
+
+    header{
+        padding: 1.2rem 11rem;
+    }    
+
+
+}

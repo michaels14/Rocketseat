@@ -1,0 +1,13 @@
+1 - O quadrado vai de um lado para o outro na página. Faça com que ele fique parado no outro lado da página.
+
+2 - Reverta a animação e faça o quadrado ir e voltar ao ponto inicial.
+
+Obs: o restante está nos index e style limpos.
+
+3 - Faça a animação esperar 2s para iniciar.
+
+4 - Teste outras funcionalidades de tempo.
+
+5 - Faça a animação parar ao colocar o mouse em cima.
+
+6 - Faça o quadrado piscar sem parar.

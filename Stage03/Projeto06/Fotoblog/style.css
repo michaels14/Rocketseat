@@ -1,0 +1,249 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+:root{
+    font-size: 62.5%;
+
+    --hue-3:300%; 
+
+    --color-white: #FFF;
+    --color-gray-min: hsl(0, 0%, 93%);
+    --color-gray-low: hsl(0, 0%, 96%);
+    --color-gray-medium: hsl(var(--hue-3), 6%, 58%);
+    --color-gray-medium2: hsl(0, 0%, 24%);
+    --color-gray-high: hsl(var(--hue-3), 6%, 21%);
+    --color-gray-ultrahigh: hsl(var(--hue-3), 6%, 13%);
+
+}
+
+html, body, input{
+    font-family: "Mulish", sans-serif;
+}
+
+body{
+    font-size: 1.6rem;
+    /* background-color: var(--color-white); /*trocado para a animação do header e footer ficar melhor*/
+    background-color: var(--color-gray-low);
+    color: var(--color-gray-ultrahigh);
+}
+
+#app{
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+
+    height: 100vh;
+}
+
+header{
+    background-color: var(--color-white);
+    border-radius: 0 0 8px 8px;/*modificado por Michael*/
+}
+
+header,
+nav,
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 7.2rem;
+    
+    font-weight: 700;
+
+}
+
+nav ul{
+    list-style: none;
+    
+    color: var(--color-gray-medium);
+    font-size: 1.8rem;
+    
+}
+
+nav ul li:hover{
+    color: var(--color-gray-ultrahigh);
+    cursor: pointer;
+}
+
+header form{
+    flex: 1;
+}
+
+.input-wrapper label{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.input-wrapper input{
+    width: 100%;
+
+    padding: 1.6rem;
+
+    font-weight: 600;
+    font-size: 1.6rem;
+    
+    background-color: var(--color-gray-min);
+
+    border: 0;
+    border-radius: .6rem;
+}
+
+.input-wrapper input::placeholder{
+    opacity: 0.56;
+    color: var(--color-gray-medium2);
+}
+
+.avatar{
+    width: 4.2rem;
+    height: 4.2rem;
+    
+    object-fit: cover;
+    
+    border-radius: 50%;
+}
+
+.container{
+    padding: 1.6rem 11.2rem;
+    margin: 0 auto;
+    
+    width: min(144rem, 100%);
+}
+
+/*GALERIA*/
+main{
+    background-color: #F5F5F5;
+
+    overflow-y: scroll; /*PROPRIEDADE USADA PARA DEIXAR APENAS O MAIN USANDO O SCROLL DO MOUSE, O HEADER E O FOOTER NESSE CASO FICA FIXO*/
+
+}
+
+main h1{
+    color: var(--color-gray-ultrahigh);
+    font-size: 2.4rem;
+
+    /* padding: 1.6rem 0 3.2rem; */
+    padding-top: 1.6rem;
+}
+
+.gallery{
+    margin-top: 3.2rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.0rem;
+}
+
+.item{
+    background-color: var(--color-white);
+    
+    border-radius: .8rem;
+
+    overflow: hidden; /*MANTÉM A IMAGEM DENTRO DA CAIXA*/
+}
+
+.item img{
+    width: 100%;
+
+    aspect-ratio: 16/9; /*APLICA ESSA PROPORÇÃO NA IMAGEM 16 DE LARGURA E 9 DE ALTURA*/
+    object-fit: cover; /*FAZ COM QUE A IMAGEM NÃO FIQUE "ESTICADA", ESSE COMANDO IRÁ MANTER AS PROPORÇÕES MAS CORTAR UM POUCO A IMAGEM*/
+
+    filter: grayscale(0.2); /*O FILTER É USADO PARA APLICAR FILTROS DIRETO PELO CSS, COMO BORRADO, TONS DE CINZA, INVERTER CORES, ETC. */
+
+    transition-property: transform, filter; /* adiciona a transição na propriedade "Transform"*/
+    transition-duration: 1s; /*indica a duração que vai levar para chegar no "fim" do transform e
+                                a duração que levará para voltar ao normal após sair do hover(nesse caso);*/
+    transition-timing-function: ease-in-out; /*configurações para uma transição ocorrer com oscilação de velocidade (pesquise por cubic bezier)*/
+    
+    /*transition: all 1s ease-in-out; /*aplicar todas as propriedades em um comando só*/
+    
+
+}
+
+.item img:hover{
+    filter: grayscale(0) contrast(105%) saturate(130%); /*altera filtros das imagens direto pelo css*/
+    transform: scale(1.1) rotate(-0.5deg) ;/*transforma, ou seja, aproxima, rotaciona, etc...qualquer elemento(existem diversos outros tipos além de scale*/
+}
+
+.details{
+    padding: 2.2rem;
+
+    background-color: var(--color-white);
+
+    position: relative;
+    z-index: 1;/*aqui foi usado para o transform da imagem não transbordar além da details*/
+    
+}
+
+.details h2{
+    font-size: 1.8rem;
+
+}
+
+.tags{
+    margin-top: 1.2rem;
+}
+.tags span{
+    padding: .6rem;
+
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    border-radius: .4rem;
+
+    background-color: var(--color-gray-low);
+}
+/*FIM GALERIA*/
+
+footer{
+    background-color: var(--color-white);
+    border-radius: 8px 8px 0 0;/*modificado por Michael*/
+}
+
+footer p{
+    text-align: center;
+
+    padding: 1.0rem;
+
+    font-weight: 600;
+}
+
+/*ANIMAÇÕES*/
+header{
+    animation: move .7s .3s;
+    --startY: -100%;
+}
+
+footer{
+    animation: move .7s .3s;
+    --startY: 100%;
+}
+
+@keyframes move{
+    from{
+        transform: translateY(var(--startY));
+    }
+    
+}
+
+
+.item{
+    --delay-item: .3s;
+    animation: appear .7s var(--delay-item) backwards ; /*backwards faz com que essa classe utilize o seu "normal" como o 0% ou from da animação
+        a variável --delay-item está utilizando o valor colocado em cada caixa .item diretamente no HTML*/
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    
+}

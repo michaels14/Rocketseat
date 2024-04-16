@@ -1,0 +1,62 @@
+body{
+    background-color: mediumpurple;
+}
+
+.square{
+    width: 4rem;
+    height: 4rem;
+    background-color: #fff;
+    opacity: .6;
+}
+
+.square{/*propriedades da animação*/
+    position: absolute;
+
+    animation-name: move, blink; /*nome da animação escolhida*/
+
+    animation-duration: 2s, 400ms; /* durante 1s faz a animação até chegar em 100% e quando termina volta para o 0%*/ /*
+            a virgula define a próxima, logo 400ms está sendo aplicado na animação blink*/
+
+    animation-fill-mode: forwards;/*o forwards faz com que a animação pare no 100%, ou seja, o quadrado se mantém do outro lado*/
+    
+    /*animation-direction: reverse;/*muda o sentido da animação, nesse caso ele está indo de 100% para 0% na página*//*primeira opção*/
+    
+    animation-direction: alternate; /*alterna a animação quantas vezes forem colocadas no animation-interation-count*//*segunda opção*/
+    
+    animation-iteration-count: infinite;/*aplica o transform do 100% na primeira vez e depois alterna para o 0% na segunda vez
+            é possível fazer o quadrado "animar" sem fim usando o "animation-interation-count: infinite", o quadrado ficará indo e voltando*/
+    
+    /*animation-delay: 2s;/*Exercício 3 - O delay faz com que o programa espere 2s(nesse caso) para que então comece a animação.*/
+    
+    animation-timing-function: ease-in-out;/*Exercício 4 - esses comandos trabalha com a oscilação de tempo em que a animação leva para contecer(cubic bazier)
+            (a devtools do navegador possui um recurso para analisar isso nos elements)(estilo steps faz a animação em "frames")*/
+
+    /*animation: move 2s forwards alternate infinite ease-in-out, blink 400ms infinite; /*animation aplicando todas as propriedades anteriores de uma vez só*/  
+}
+
+.square:hover{
+    animation-play-state: paused;/*5 -esse comando faz a animação parar, nesse caso vai parar ao chegar no status de hover.*/
+}
+
+@keyframes move{
+    /*pode ser usado "from" e "to" no lugar de 0 e 100*/
+    
+
+    0%{ /*ESSE 0% NÃO É NECESSÁRIO QUANDO ESTAMOS USANDO O REVERSE*/
+
+    }
+    /*SEGUNDA OPÇÃO PARA IR E VOLTAR*/
+    100%{
+        transform: translateX(calc(100vw - 100% - 16px));
+    }
+    /*FIM SEGUNDA OPÇÃO PARA IR E VOLTAR*/
+}
+
+@keyframes blink {/*animação para fazer a animação ficar piscando*/
+    0%{
+        opacity: .1;
+    }
+    50%{
+        opacity: 1;
+    }
+}
