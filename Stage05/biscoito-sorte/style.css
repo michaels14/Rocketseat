@@ -1,0 +1,140 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  font-size: 62.5%;
+}
+
+.hide{
+  display:none;
+}
+
+body, button, html{
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  color: #34355B;
+}
+
+body{
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(45deg, #190361 0%, #BB00FF 100%);
+  height: 100vh;
+}
+
+main{
+  width: min(42.8rem, 90%);
+  padding: 4.8rem 6.4rem 6.4rem;
+
+  background: #FFFFFF;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.8);
+  border-radius: .5rem;
+
+  text-align: center;
+}
+
+h1{
+  font-family: 'Montserrat', sans-serif ;
+  font-weight: bold;
+  font-size: 2.4rem;
+}
+
+p{
+  margin-top: 1.4rem;
+  margin-bottom: 2.0rem;
+}
+
+.luck p{
+  font-family: "Dancing Script", cursive;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: black;
+
+  padding: 1rem;
+  width: min(29.2rem, 90%);
+
+
+  background: #E4EDF1;
+  box-shadow: .2rem .2rem .2rem rgba(85, 85, 85, 0.5);
+
+	animation: scale-up-top 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.luck div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home div{
+  padding: 16px;
+}
+.home img{
+  cursor: pointer;
+}
+
+button{
+  cursor: pointer;
+  padding: 1.6rem;
+  margin-top: 1.6rem;
+
+  background-color: #FF9500;
+
+  border: none;
+  border-radius: .4rem;
+
+  font-weight: bold;
+  color: white;
+}
+
+button:hover{
+  background-color: #e28502;
+}
+
+
+/* ANIMATIONS */
+.home img:hover {
+  animation: tremendous 200ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tremendous {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25%{
+    transform: rotate(10deg);
+  }
+ 
+  50%{
+    transform: rotate(0deg);
+  }
+
+  75%{
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+
+  }
+}
+
+
+@keyframes scale-up-top {
+  0% {
+    transform: scale(0.1);
+    transform-origin: center 200%;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+}
